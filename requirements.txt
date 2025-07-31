@@ -3,11 +3,11 @@ beautifulsoup4
 scikit-learn
 nltk
 requests
-word2vec
+gensim
 numpy
 pandas
-langdetect
-gensim
-emoji
 joblib
+langdetect
 textblob
+emoji
+gunicorn
