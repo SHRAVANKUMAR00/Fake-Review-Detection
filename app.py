@@ -4,6 +4,27 @@ from model import load_models, classify_reviews  # Functions to load models and 
 from preprocessing import preprocess_text  # Function for text preprocessing
 import pandas as pd
 import os
+import nltk # Explicitly import nltk
+
+# --- NLTK Data Downloads (Added Lines) ---
+# These lines ensure that the necessary NLTK data is downloaded.
+# They are wrapped in try-except blocks to prevent re-downloading if already present.
+try:
+    nltk.data.find('corpora/stopwords')
+except nltk.downloader.DownloadError:
+    nltk.download('stopwords')
+
+try:
+    nltk.data.find('corpora/wordnet')
+except nltk.downloader.DownloadError:
+    nltk.download('wordnet')
+
+try:
+    nltk.data.find('tokenizers/punkt')
+except nltk.downloader.DownloadError:
+    nltk.download('punkt')
+# --- End NLTK Data Downloads ---
+
 
 # Get the absolute path to the directory where app.py is located
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -40,24 +61,24 @@ def analyze():
     """
     data = request.json
     url = data.get('url')  # Extract the URL from the request
-    
+
     if not url:
         return jsonify({"error": "No URL provided"}), 400  # Return error if URL is missing
-    
+
     reviews = scrape_reviews(url)  # Scrape reviews from the given URL
     if reviews.empty:
         return jsonify({"error": "No reviews found"}), 404  # Return error if no reviews found
-    
+
     # Validate expected columns from scraped reviews
     if "Review Text" not in reviews.columns or "Rating" not in reviews.columns:
         return jsonify({"error": "Invalid reviews format"}), 400  # Return error if data format is incorrect
-    
+
     # Preprocessing reviews before classification
     preprocessed_reviews = []
     for i, review_text_raw in enumerate(reviews["Review Text"]):
         # Pass the original review text to preprocess_text
         review_text_processed = preprocess_text(review_text_raw)  # Clean and preprocess review text
-        
+
         # Ensure rating is a float for consistency, default if conversion fails
         try:
             rating = float(reviews.iloc[i]["Rating"])
@@ -65,12 +86,12 @@ def analyze():
             rating = 3.0 # Default rating if conversion fails
 
         preprocessed_reviews.append({"Review Text": review_text_processed, "Rating": rating, "Original Review Text": review_text_raw})
-    
+
     # Predict whether reviews are real or fake
     # The classify_reviews function expects a list of dictionaries with 'Review Text' and 'Rating'
     # It will internally handle the vectorization based on the preprocessed text and the rating/length features
     predictions = classify_reviews(preprocessed_reviews, word2vec_model, svm_model)
-    
+
     # Create a DataFrame to store results
     # Use the original review text for display in the UI
     df = pd.DataFrame({
@@ -78,10 +99,10 @@ def analyze():
         "Rating": [r["Rating"] for r in preprocessed_reviews],
         "Prediction": predictions
     })
-    
+
     # Map predictions to human-readable labels
     df["Prediction"] = df["Prediction"].map({1: "Fake (Computer Generated)", 0: "Real (Original)"})
-    
+
     # Convert DataFrame to dictionary format for JSON response
     result = df.to_dict(orient='records')
     return jsonify(result)
