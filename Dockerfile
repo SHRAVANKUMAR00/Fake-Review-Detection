@@ -1,7 +1,6 @@
 # Use a specific Python base image that includes build tools
-# python:3.9-slim-buster is a good choice as it's stable and based on Debian
-# which makes apt-get reliable. It also has a smaller footprint than full images.
-FROM python:3.9-slim-buster
+# python:3.9-slim-bullseye is based on Debian 11, which is actively maintained.
+FROM python:3.9-slim-bullseye
 
 # Set the working directory in the container
 WORKDIR /app
