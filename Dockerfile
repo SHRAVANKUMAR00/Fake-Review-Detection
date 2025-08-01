@@ -1,6 +1,6 @@
 # Use a specific Python base image that includes build tools
-# python:3.9-slim-bullseye is based on Debian 11, which is actively maintained.
-FROM python:3.9-slim-bullseye
+# python:3.9-slim-bookworm is based on Debian 12, which is actively maintained and more current.
+FROM python:3.9-slim-bookworm
 
 # Set the working directory in the container
 WORKDIR /app
@@ -20,13 +20,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of your application code
 COPY . .
 
-# Download NLTK data (if not already handled in app.py or a separate script)
-# This is a safe way to ensure NLTK data is available in the Docker image
+# Download NLTK data (this is done during the build process)
 RUN python -c "import nltk; nltk.download('stopwords'); nltk.download('wordnet'); nltk.download('punkt')"
 
 # Expose the port your Flask app will run on
 EXPOSE 8000
 
 # Command to run the application using Gunicorn
-# This is the same as your Procfile, but now inside Docker
+# IMPORTANT: Use the full path to gunicorn to ensure it's found at runtime.
 CMD ["/usr/local/bin/gunicorn", "-w", "4", "-b", "0.0.0.0:8000", "app:app"]
