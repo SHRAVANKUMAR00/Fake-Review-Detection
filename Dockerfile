@@ -29,4 +29,4 @@ EXPOSE 8000
 
 # Command to run the application using Gunicorn
 # This is the same as your Procfile, but now inside Docker
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:8000", "app:app"]
+CMD ["/usr/local/bin/gunicorn", "-w", "4", "-b", "0.0.0.0:8000", "app:app"]
