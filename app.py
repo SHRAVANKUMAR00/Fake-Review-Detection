@@ -4,25 +4,11 @@ from model import load_models, classify_reviews  # Functions to load models and 
 from preprocessing import preprocess_text  # Function for text preprocessing
 import pandas as pd
 import os
-import nltk # Explicitly import nltk
+import nltk # Keep the import if other parts of your code use nltk directly
 
-# --- NLTK Data Downloads (Added Lines) ---
-# These lines ensure that the necessary NLTK data is downloaded.
-# They are wrapped in try-except blocks to prevent re-downloading if already present.
-try:
-    nltk.data.find('corpora/stopwords')
-except nltk.downloader.DownloadError:
-    nltk.download('stopwords')
-
-try:
-    nltk.data.find('corpora/wordnet')
-except nltk.downloader.DownloadError:
-    nltk.download('wordnet')
-
-try:
-    nltk.data.find('tokenizers/punkt')
-except nltk.downloader.DownloadError:
-    nltk.download('punkt')
+# --- NLTK Data Downloads (REMOVED from here) ---
+# These lines are removed from app.py.
+# Ensure NLTK data is downloaded by your deployment environment (e.g., Dockerfile, build script).
 # --- End NLTK Data Downloads ---
 
 
