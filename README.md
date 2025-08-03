@@ -31,6 +31,8 @@ Empowered by AI, NLP, and machine learning, this web app classifies reviews as *
 
 ![Screenshot](https://github.com/SHRAVANKUMAR00/Fake-Review-Detection/blob/main/assets/Screenshot%20(305).png)
 
+![](https://github.com/SHRAVANKUMAR00/Fake-Review-Detection/blob/main/assets/Screenshot%20(306).png)
+
 ## 🚚 Getting Started
 
 ### Prerequisites
@@ -74,7 +76,7 @@ This project is licensed under the [MIT License](LICENSE).
 **Shravan Kumar**
 
 - 📧 Email: shravankumar00549@gmail.com
-- 🌐 [LinkedIn](https://www.linkedin.com/)
+- 🌐 [LinkedIn](https://www.linkedin.com/in/shravan-kumar-b8411928b/)
 <!-- (Add or remove contact methods as you wish) -->
 
 ## 🙏 Acknowledgements
