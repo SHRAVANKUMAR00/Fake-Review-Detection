@@ -29,7 +29,7 @@ Empowered by AI, NLP, and machine learning, this web app classifies reviews as *
 
 ## 📸 Screenshots
 
-![Screenshot](<YOUR_SCREENSHOT_LINK_HERE>)
+![Screenshot](assets/)
 
 ## 🚚 Getting Started
 
@@ -73,7 +73,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 **Shravan Kumar**
 
-- 📧 Email: your.email@example.com
+- 📧 Email: shravankumar00549@gmail.com
 - 🌐 [LinkedIn](https://www.linkedin.com/)
 <!-- (Add or remove contact methods as you wish) -->
 
@@ -90,9 +90,3 @@ This project is licensed under the [MIT License](LICENSE).
 
 > _Enhance your shopping trust. Detect fake reviews with AI power!_
 ```
-
-**Instructions:**
-- Paste this into your `README.md`.
-- Update the screenshot link, email, and LinkedIn as needed.
-
-Let me know if you want the README committed to your repo or need the code for any other file!
