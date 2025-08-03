@@ -29,7 +29,7 @@ Empowered by AI, NLP, and machine learning, this web app classifies reviews as *
 
 ## 📸 Screenshots
 
-![Screenshot](assets/)
+![Screenshot](https://github.com/SHRAVANKUMAR00/Fake-Review-Detection/blob/main/assets/Screenshot%20(305).png)
 
 ## 🚚 Getting Started
 
