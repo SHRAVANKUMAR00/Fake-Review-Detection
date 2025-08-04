@@ -3,7 +3,7 @@
 Detect fraudulent Amazon product reviews and shop smarter!  
 Empowered by AI, NLP, and machine learning, this web app classifies reviews as **Real** or **Fake** and generates AI-powered summaries to help you make informed decisions.
 
-[![Watch Demo](https://img.shields.io/badge/YouTube-Demo-red?logo=youtube&style=for-the-badge)](https://youtu.be/eOFnP-0zxZI)
+[![Watch Demo](https://img.shields.io/badge/YouTube-Demo-red?logo=youtube&style=for-the-badge)](https://youtu.be/gNCwOYrvG_U)
 
 ![Fake Review Detection Banner](https://img.shields.io/badge/AI-Powered-blueviolet?style=for-the-badge)  
 ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python&style=flat-square)
